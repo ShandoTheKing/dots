@@ -38,6 +38,13 @@
             nixos-wsl.nixosModules.wsl
           ];
         };
+        Ops = mkNixosConfig {
+          system = "x86_64-linux";
+          pathToConfig = ./hosts/ops/configuration.nix;
+          extraModules = [
+            nixos-wsl.nixosModules.wsl
+          ];
+        };
       };
       nixOnDroidConfigurations = with myLib; {
         Hestia = mkNixOnDroidConfig {
