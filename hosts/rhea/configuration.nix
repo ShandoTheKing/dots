@@ -112,7 +112,7 @@
   text = ''
     mkdir -p /home/shando/.config
     ln -sfn ${toString ../../nvim} /home/shando/.config/nvim
-    chown -R shando:shando /home/youruser/.config/nvim
+    chown -R shando:shando /home/shando/.config/nvim
   '';
 };
 
