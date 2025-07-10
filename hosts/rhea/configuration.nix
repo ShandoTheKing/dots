@@ -108,6 +108,15 @@
   xdg.portal.wlr.enable = true;
   programs.zsh.enable = true;
 
+  system.activationScripts.nvim-config = {
+  text = ''
+    mkdir -p /home/shando/.config
+    ln -sfn ${toString ../../nvim} /home/shando/.config/nvim
+    chown -R shando:shando /home/youruser/.config/nvim
+  '';
+};
+
+
   nixpkgs.overlays = [
     (final: prev: {
       cozette = prev.cozette.overrideAttrs (
