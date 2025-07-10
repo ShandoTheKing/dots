@@ -19,8 +19,11 @@ rec {
   mkNixOnDroidConfig = 
     host:
     inputs.nix-on-droid.lib.nixOnDroidConfiguration {
-       pkgs = import inputs.nixpkgs { system = host.system;
-       allowUnfree = true; overlays = [ inputs.nix-on-droid.overlays.default ];};
+       pkgs = import inputs.nixpkgs { 
+	 system = host.system;
+	 allowUnfree = true; 
+	 overlays = [ inputs.nix-on-droid.overlays.default ];
+       };
        modules = [
          host.pathToConfig
 	 outputs.nixosModules.default
