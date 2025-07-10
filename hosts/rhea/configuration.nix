@@ -111,8 +111,8 @@
   system.activationScripts.nvim-config = {
   text = ''
     mkdir -p /home/shando/.config
-    ln -sfn ${toString ../../nvim} /home/shando/.config/nvim
-    chown -R shando:shando /home/shando/.config/nvim
+    ln -sfn /home/shando/dots/nvim /home/shando/.config/nvim
+    chown -R shando:users /home/shando/.config/nvim
   '';
 };
 
