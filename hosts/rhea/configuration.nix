@@ -25,6 +25,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    gcc
     neovim
     wget
     git
