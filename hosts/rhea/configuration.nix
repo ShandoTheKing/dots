@@ -26,6 +26,12 @@
 
   environment.systemPackages = with pkgs; [
     gcc
+    gnumake
+    unzip
+    curl
+    nodejs
+    python3
+    luarocks
     neovim
     wget
     git
