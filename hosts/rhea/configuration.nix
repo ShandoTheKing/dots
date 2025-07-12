@@ -116,13 +116,12 @@
   programs.zsh.enable = true;
 
   system.activationScripts.nvim-config = {
-  text = ''
-    mkdir -p /home/shando/.config
-    ln -sfn /home/shando/dots/nvim /home/shando/.config/nvim
-    chown -R shando:users /home/shando/.config/nvim
-  '';
-};
-
+    text = ''
+      mkdir -p /home/shando/.config
+      ln -sfn /home/shando/dots/nvim /home/shando/.config/nvim
+      chown -R shando:users /home/shando/.config/nvim
+    '';
+  };
 
   nixpkgs.overlays = [
     (final: prev: {

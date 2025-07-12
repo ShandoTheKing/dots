@@ -50,7 +50,7 @@
         Hestia = mkNixOnDroidConfig {
           system = "aarch64-linux";
           pathToConfig = ./hosts/hestia/nix-on-droid.nix;
-	};
+        };
       };
       nixosModules.default = ./nixosModules;
       homeManagerModules.default = ./homeManagerModules;
