@@ -35,7 +35,6 @@
           pathToConfig = ./hosts/rhea/configuration.nix;
           extraModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
-            nixos-wsl.nixosModules.wsl
           ];
         };
         Ops = mkNixosConfig {
