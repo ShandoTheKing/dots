@@ -52,6 +52,5 @@
         };
       };
       nixosModules.default = ./nixosModules;
-      homeManagerModules.default = ./homeManagerModules;
     };
 }
