@@ -29,6 +29,7 @@
       myLib = import ./myLib { inherit inputs; };
     in
     {
+      myLib = myLib; # Make myLib reusable outside flake.nix
       nixosConfigurations = with myLib; {
         Rhea = mkNixosConfig {
           system = "x86_64-linux";
@@ -51,6 +52,6 @@
           pathToConfig = ./hosts/hestia/nix-on-droid.nix;
         };
       };
-      nixosModules.default = ./nixosModules;
+      nixosModules.default = import ./nixosModules { inherit inputs; };
     };
 }
