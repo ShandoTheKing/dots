@@ -1,24 +1,9 @@
 { inputs }:
 let
   outputs = inputs.self.outputs;
-  lib = inputs.nixpkgs.lib;
+  lib = inputs.lib;
 in
 rec {
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
-  # Recursively List all files ending with ".nix" AND does not contain any "_" in its file path
-  listAllNixFilesRecursive =
-    folderPath: currentFile:
-    lib.pipe (lib.filesystem.listFilesRecursive folderPath) [
-      (lib.filter (n: lib.strings.hasSuffix ".nix" n))
-      (lib.filter (n: !lib.strings.hasInfix "_" n))
-      (lib.filter (path: path != currentFile))
-    ];
-
->>>>>>> Stashed changes
   mkNixosConfig =
     host:
     inputs.nixpkgs.lib.nixosSystem {
@@ -27,14 +12,6 @@ rec {
         allowUnfree = true;
       };
       modules = [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-        ./default.nix
->>>>>>> Stashed changes
-=======
-        ./default.nix
->>>>>>> Stashed changes
         host.pathToConfig
         outputs.nixosModules.default
       ] ++ host.extraModules;
