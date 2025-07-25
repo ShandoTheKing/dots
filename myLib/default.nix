@@ -5,7 +5,10 @@ let
 in
 rec {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
   # Recursively List all files ending with ".nix" AND does not contain any "_" in its file path
   listAllNixFilesRecursive =
     folderPath: currentFile:
@@ -25,6 +28,10 @@ rec {
       };
       modules = [
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+        ./default.nix
+>>>>>>> Stashed changes
 =======
         ./default.nix
 >>>>>>> Stashed changes
