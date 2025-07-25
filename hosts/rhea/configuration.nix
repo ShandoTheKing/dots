@@ -41,6 +41,7 @@
     alsa-tools
     bibata-cursors
     tamsyn
+    arduino-cli
   ];
 
   nix.settings.experimental-features = [

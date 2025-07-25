@@ -51,6 +51,10 @@
           pathToConfig = ./hosts/hestia/nix-on-droid.nix;
         };
       };
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
       nixosModules.default = ./nixosModules;
     };
 }
