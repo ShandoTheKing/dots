@@ -43,6 +43,7 @@ require'nvim-treesitter.configs'.setup {
 	auto_install = true,
 	highlight = { enable = true }
 }
+vim.treesitter.language.register("bash", "zsh")
 
 require("mini.completion").setup({})
 
