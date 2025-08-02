@@ -13,6 +13,8 @@
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
   };
 
   outputs =
@@ -27,6 +29,9 @@
     }@inputs:
     let
       myLib = import ./myLib { inherit inputs; };
+      overlays = [
+        inputs.neovim-nightly-overlay.overlays.default
+      ];
     in
     {
       nixosConfigurations = with myLib; {
@@ -35,6 +40,7 @@
           pathToConfig = ./hosts/rhea/configuration.nix;
           extraModules = [
             nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+            { nixpkgs.overlays = overlays; }
           ];
         };
         Ops = mkNixosConfig {
