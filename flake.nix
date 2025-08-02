@@ -35,28 +35,32 @@
     in
     {
       nixosConfigurations = with myLib; {
-        Rhea = mkNixosConfig {
-          system = "x86_64-linux";
-          pathToConfig = ./hosts/rhea/configuration.nix;
-          extraModules = [
+        Rhea = nixpkgs.lib.nixosSystem {
+          pkgs = import inputs.nixpkgs {
+            system = "x86_64-linux";
+            allowUnfree = true;
+          };
+          modules = [
+            ./hosts/rhea/configuration.nix
+            ./nixosModules
+            { nixpkgs.overlays = overlays; }
             nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+          ];
+        };
+      };
+      nixOnDroidConfigurations = {
+        Hestia = nix-on-droid.lib.nixOnDroidConfiguration {
+          pkgs = import inputs.nixpkgs {
+            system = "aarch64-linux";
+            allowUnfree = true;
+            overlays = [ inputs.nix-on-droid.overlays.default ];
+          };
+          modules = [
+            ./hosts/hestia/nix-on-droid.nix
+            ./nixosModules
             { nixpkgs.overlays = overlays; }
           ];
         };
-        Ops = mkNixosConfig {
-          system = "x86_64-linux";
-          pathToConfig = ./hosts/ops/configuration.nix;
-          extraModules = [
-            nixos-wsl.nixosModules.wsl
-          ];
-        };
       };
-      nixOnDroidConfigurations = with myLib; {
-        Hestia = mkNixOnDroidConfig {
-          system = "aarch64-linux";
-          pathToConfig = ./hosts/hestia/nix-on-droid.nix;
-        };
-      };
-      nixosModules.default = ./nixosModules;
     };
 }
