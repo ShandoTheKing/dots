@@ -42,6 +42,7 @@
     bibata-cursors
     tamsyn
     arduino-cli
+    stow
   ];
 
   nix.settings.experimental-features = [
