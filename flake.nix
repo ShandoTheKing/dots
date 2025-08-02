@@ -28,13 +28,12 @@
       ...
     }@inputs:
     let
-      myLib = import ./myLib { inherit inputs; };
       overlays = [
         inputs.neovim-nightly-overlay.overlays.default
       ];
     in
     {
-      nixosConfigurations = with myLib; {
+      nixosConfigurations = {
         Rhea = nixpkgs.lib.nixosSystem {
           pkgs = import inputs.nixpkgs {
             system = "x86_64-linux";
