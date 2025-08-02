@@ -26,7 +26,8 @@
 
   environment.etc."zshenv".text = ''
     export ZDOTDIR="$HOME/.config/zsh"
-  ''
+  '';
+
   environment.systemPackages = with pkgs; [
     nil
     gcc
