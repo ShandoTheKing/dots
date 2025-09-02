@@ -29,9 +29,9 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 
 # Directory history using dir stack feature
 setopt AUTO_PUSHD 		# Make cd push the old directory onto the directory stack.
-setopt PUSHD_MINUS		# Exchanges the meanings of ‘+’ and ‘-’ when used with a number to specify a directory in the stack. Normaly ‘-’ removes the entry from the list. 
-setopt PUSHD_SILENT 		# Do not print the directory stack after pushd or popd. 
-setopt PUSHD_TO_HOME 		# Do not print the directory stack after pushd or popd. 
+setopt PUSHD_MINUS		# Exchanges the meanings of ‘+’ and ‘-’ when used with a number to specify a directory in the stack. Normaly ‘-’ removes the entry from the list.
+setopt PUSHD_SILENT 		# Do not print the directory stack after pushd or popd.
+setopt PUSHD_TO_HOME 		# Do not print the directory stack after pushd or popd.
 setopt PUSHD_IGNORE_DUPS	# Don’t push multiple copies of the same directory onto the directory stack.
 DIRSTACKSIZE=8
 alias dh="dirs -v"
@@ -40,6 +40,8 @@ setopt autocd extendedglob
 bindkey -v
 
 # ALIASES
+alias nd="nix develop -c $SHELL -l"
+alias nrs="sudo nixos-rebuild switch --flake \.\#"
 alias nv="nvim"
 alias bat_cap="cat /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A08:00/device:37/PNP0C09:00/PNP0C0A:00/power_supply/BAT0/capacity"
 export BACKLIGHT="/sys/class/backlight/amdgpu_bl1/brightness"
