@@ -1,3 +1,6 @@
 [submodule "stow/dot-config/zsh/powerlevel10k"]
 	path = stow/dot-config/zsh/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "textfox"]
+	path = textfox
+	url = https://github.com/adriankarlen/textfox

@@ -58,6 +58,14 @@
   networking.networkmanager.enable = true;
   time.timeZone = "Asia/Colombo";
 
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      animation = "doom";
+      battery_id = "BAT0";
+    };
+  };
+
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
