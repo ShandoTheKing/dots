@@ -10,6 +10,8 @@
     ./hardware-configuration.nix
   ];
 
+  shando.baseCli.enable = true;
+
   users.users.shando = {
     isNormalUser = true;
     extraGroups = [
@@ -21,32 +23,14 @@
       firefox
       kitty
     ];
-    shell = pkgs.zsh;
   };
 
-  environment.etc."zshenv".text = ''
-    export ZDOTDIR="$HOME/.config/zsh"
-  '';
 
   environment.systemPackages = with pkgs; [
-    nil
-    gcc
-    gnumake
-    unzip
-    curl
-    nodejs
-    python3
-    luarocks
-    neovim
-    wget
-    git
-    htop
     alsa-utils
     alsa-tools
     bibata-cursors
     tamsyn
-    arduino-cli
-    stow
   ];
 
   nix.settings.experimental-features = [
@@ -105,7 +89,6 @@
   programs.river.enable = true;
   services.libinput.enable = true;
   xdg.portal.wlr.enable = true;
-  programs.zsh.enable = true;
 
   system.stateVersion = "24.05"; # Do not change bruh
 
