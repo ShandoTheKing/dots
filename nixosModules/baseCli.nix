@@ -5,7 +5,7 @@
   ...
 }:
 let
- cfg = config.shando.baseCli;
+  cfg = config.shando.baseCli;
 in
 {
   options.shando.baseCli = {

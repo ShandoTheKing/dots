@@ -7,6 +7,7 @@
 }:
 {
   imports = [
-  ./baseCli.nix
+    ./baseCli.nix
+    ./gui/mangowc.nix
   ];
 }
