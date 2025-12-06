@@ -12,6 +12,7 @@
 
   shando.baseCli.enable = true;
   shando.mangowc.enable = true;
+  shando.keyd.enable = true;
 
   users.users.shando = {
     isNormalUser = true;

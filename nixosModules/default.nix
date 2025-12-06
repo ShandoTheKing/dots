@@ -8,6 +8,7 @@
 {
   imports = [
     ./baseCli.nix
+    ./keyd.nix
     ./gui/mangowc.nix
   ];
 }
