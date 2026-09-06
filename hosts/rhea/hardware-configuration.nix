@@ -32,7 +32,10 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.timeout = 0;
+  boot.loader.grub.timeout = 1;
+  boot.loader.grub.extraConfig = ''
+    GRUB_TIMEOUT_STYLE=hidden
+  '';
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.extraEntries = ''
