@@ -12,7 +12,20 @@
 
   shando.baseCli.enable = true;
   shando.mangowc.enable = true;
-  shando.keyd.enable = true;
+  services.keyd = {
+    enable = true;
+
+    keyboards.default = {
+      ids = [ "*" ];
+
+      settings = {
+        main = {
+          capslock = "esc";
+          esc = "capslock";
+        };
+      };
+    };
+  };
 
   users.users.shando = {
     isNormalUser = true;
@@ -53,7 +66,8 @@
   services.displayManager.ly = {
     enable = true;
     settings = {
-      animation = "doom";
+      session_log = null;
+      animation = "none";
       doom_fire_height = 3;
       doom_fire_spread = 1;
       doom_bottom_color = "0x0062E8C8";
