@@ -32,6 +32,12 @@
     alsa-tools
     bibata-cursors
     tamsyn
+    onlyoffice-desktopeditors
+    onagre
+    usbutils
+    pciutils
+    bluetui
+    zathura
   ];
 
   nix.settings.experimental-features = [
@@ -41,6 +47,7 @@
 
   networking.hostName = "Rhea";
   networking.networkmanager.enable = true;
+  networking.modemmanager.enable = true;
   time.timeZone = "Asia/Colombo";
 
   services.displayManager.ly = {

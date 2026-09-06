@@ -26,6 +26,7 @@
   boot.kernelModules = [
     "amd-gpu"
     "kvm-amd"
+    "psmouse.synaptics_intertouch=1"
   ];
   boot.extraModulePackages = [ ];
   boot.loader.grub.enable = true;
@@ -55,7 +56,7 @@
             linux /boot/vmlinuz-6.8.5-301.fc40.x86_64 root=/dev/nvme0n1p3
             initrd /boot/initramfs-6.8.5-301.fc40.x86_64.img
     }
-    }   
+    }
   '';
 
   fileSystems."/" = {
@@ -85,4 +86,8 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.bluetooth = {
+  enable = true;
+  powerOnBoot = false;
+};
 }
