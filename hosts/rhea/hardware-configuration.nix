@@ -32,32 +32,25 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.timeout = 1;
+  boot.loader.grub.timeout = 5;
   boot.loader.grub.timeoutStyle = "hidden";
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.elegant-grub2-theme = {
+    enable = true;
+    theme = "mojave";
+    type = "window";
+    side = "left";
+    color = "dark";
+    screen = "1080p";
+    logo = "system";
+  };
   boot.loader.grub.extraEntries = ''
-    menuentry 'Windows Boot Manager (on /dev/nvme0n1p1)' --class windows --class os $menuentry_id_option 'osprober-efi-1502-E6F5' {
+    menuentry 'Windows 10' --class windows --class os $menuentry_id_option 'osprober-efi-1502-E6F5' {
     insmod part_gpt
     insmod fat
     search --no-floppy --fs-uuid --set=root 1502-E6F5
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-    }
-    menuentry 'Fedora Linux 41 (Workstation Edition) (on /dev/nvme0n1p3)' --class fedora --class gnu-linux --class gnu --class os $menuentry_id_option 'osprober-gnulinux-simple-c5da5d36-2c15-41f8-9684-562dab8f0890' {
-    insmod part_gpt
-    insmod ext2
-    search --no-floppy --fs-uuid --set=root c5da5d36-2c15-41f8-9684-562dab8f0890
-    linux /boot/vmlinuz-6.8.5-301.fc40.x86_64 root=/dev/nvme0n1p3
-    initrd /boot/initramfs-6.8.5-301.fc40.x86_64.img
-    }
-    submenu 'Advanced options for Fedora Linux 41 (Workstation Edition) (on /dev/nvme0n1p3)' $menuentry_id_option 'osprober-gnulinux-advanced-c5da5d36-2c15-41f8-9684-562dab8f0890' {
-    menuentry 'Fedora Linux 41 (Workstation Edition) (on /dev/nvme0n1p3)' --class gnu-linux --class gnu --class os $menuentry_id_option 'osprober-gnulinux-/boot/vmlinuz-6.8.5-301.fc40.x86_64--c5da5d36-2c15-41f8-9684-562dab8f0890' {
-            insmod part_gpt
-            insmod ext2
-            search --no-floppy --fs-uuid --set=root c5da5d36-2c15-41f8-9684-562dab8f0890
-            linux /boot/vmlinuz-6.8.5-301.fc40.x86_64 root=/dev/nvme0n1p3
-            initrd /boot/initramfs-6.8.5-301.fc40.x86_64.img
-    }
     }
   '';
 

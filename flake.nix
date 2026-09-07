@@ -10,6 +10,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    elegant-grub2-themes = {
+      url = "github:vinceliuice/elegant-grub2-themes";
+    };
   };
 
   outputs =
@@ -20,6 +23,7 @@
       home-manager,
       nix-on-droid,
       nixos-hardware,
+      elegant-grub2-themes,
       ...
     }@inputs:
     let
@@ -39,6 +43,7 @@
             ./nixosModules
             { nixpkgs.overlays = overlays; }
             nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+            elegant-grub2-themes.nixosModules.default
           ];
         };
       };
