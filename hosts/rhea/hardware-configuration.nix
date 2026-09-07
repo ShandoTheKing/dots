@@ -21,30 +21,22 @@
     "usb_storage"
     "sd_mod"
     "rtsx_pci_sdmmc"
+    "amdgpu"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [
-    "amd-gpu"
+    "video"
+    "amdgpu"
     "kvm-amd"
-    "psmouse.synaptics_intertouch=1"
   ];
   boot.extraModulePackages = [ ];
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.efiSupport = true;
-  boot.loader.grub.timeout = 5;
-  boot.loader.grub.timeoutStyle = "hidden";
+  boot.loader.grub.timeout = 10;
+  boot.loader.grub.theme = "${pkgs.minimal-grub-theme}";
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.elegant-grub2-theme = {
-    enable = true;
-    theme = "mojave";
-    type = "window";
-    side = "left";
-    color = "dark";
-    screen = "1080p";
-    logo = "system";
-  };
   boot.loader.grub.extraEntries = ''
     menuentry 'Windows 10' --class windows --class os $menuentry_id_option 'osprober-efi-1502-E6F5' {
     insmod part_gpt
@@ -68,6 +60,13 @@
     ];
   };
 
+  boot.kernelParams = [
+    "acpi_backlight=native"
+    "psmouse.synaptics_intertouch=1"
+  ];
+
+  services.fstrim.enable = true;
+
   swapDevices = [ ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
@@ -82,7 +81,7 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.bluetooth = {
-  enable = true;
-  powerOnBoot = false;
-};
+    enable = true;
+    powerOnBoot = false;
+  };
 }

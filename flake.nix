@@ -3,16 +3,12 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    elegant-grub2-themes = {
-      url = "github:vinceliuice/elegant-grub2-themes";
-    };
   };
 
   outputs =
@@ -22,8 +18,6 @@
       nixos-wsl,
       home-manager,
       nix-on-droid,
-      nixos-hardware,
-      elegant-grub2-themes,
       ...
     }@inputs:
     let
@@ -42,8 +36,6 @@
             ./hosts/rhea/configuration.nix
             ./nixosModules
             { nixpkgs.overlays = overlays; }
-            nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
-            elegant-grub2-themes.nixosModules.default
           ];
         };
       };

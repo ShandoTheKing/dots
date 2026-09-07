@@ -11,7 +11,6 @@
   ];
 
   shando.baseCli.enable = true;
-  shando.mangowc.enable = true;
   services.keyd = {
     enable = true;
 
@@ -62,22 +61,6 @@
   networking.networkmanager.enable = true;
   networking.modemmanager.enable = true;
   time.timeZone = "Asia/Colombo";
-
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      session_log = null;
-      animation = "none";
-      doom_fire_height = 3;
-      doom_fire_spread = 1;
-      doom_bottom_color = "0x0062E8C8";
-      doom_middle_color = "0x0054E287";
-      doom_top_color = "0x0000C5A7";
-      hide_version_string = true;
-      vi_mode = true;
-      battery_id = "BAT0";
-    };
-  };
 
   security.rtkit.enable = true;
   services.pipewire = {
