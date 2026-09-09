@@ -36,6 +36,8 @@
     packages = with pkgs; [
       firefox
       kitty
+    ] ++ [
+      inputs.freesmlauncher.packages.x86_64-linux.freesmlauncher
     ];
   };
 
@@ -50,6 +52,7 @@
     pciutils
     bluetui
     zathura
+    wl-clipboard
   ];
 
   nix.settings.experimental-features = [
@@ -70,6 +73,8 @@
     pulse.enable = true;
     #jack.enable = true;
   };
+
+  services.tuned.enable = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

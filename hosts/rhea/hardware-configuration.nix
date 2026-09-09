@@ -62,7 +62,7 @@
 
   boot.kernelParams = [
     "acpi_backlight=native"
-    "psmouse.synaptics_intertouch=1"
+    "psmouse.synaptics_intertouch=0"
   ];
 
   services.fstrim.enable = true;

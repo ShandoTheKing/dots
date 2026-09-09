@@ -9,6 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    freesmlauncher = {
+      url = "github:FreesmTeam/FreesmLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -18,6 +22,7 @@
       nixos-wsl,
       home-manager,
       nix-on-droid,
+      freesmlauncher,
       ...
     }@inputs:
     let
@@ -28,6 +33,7 @@
     {
       nixosConfigurations = {
         Rhea = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
           pkgs = import inputs.nixpkgs {
             system = "x86_64-linux";
             allowUnfree = true;
