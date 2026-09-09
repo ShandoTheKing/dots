@@ -47,7 +47,7 @@
     bibata-cursors
     tamsyn
     onlyoffice-desktopeditors
-    onagre
+    rofi
     usbutils
     pciutils
     bluetui
@@ -97,6 +97,7 @@
   };
 
   programs.river.enable = true;
+  programs.kdeconnect.enable = true;
   services.libinput.enable = true;
   xdg.portal.wlr.enable = true;
 
