@@ -60,6 +60,12 @@
     "flakes"
   ];
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
   networking.hostName = "Rhea";
   networking.networkmanager.enable = true;
   networking.modemmanager.enable = true;
