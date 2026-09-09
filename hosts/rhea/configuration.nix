@@ -97,9 +97,13 @@
   };
 
   programs.river.enable = true;
+  programs.uwsm.enable = true;
   programs.kdeconnect.enable = true;
   services.libinput.enable = true;
-  xdg.portal.wlr.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
 
   system.stateVersion = "24.05"; # Do not change bruh
 
